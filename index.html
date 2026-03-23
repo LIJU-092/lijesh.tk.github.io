@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lijesh TK — Chief of Staff · COO · VP Operations</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0d;
+    --paper: #f5f2ed;
+    --gold: #b8974a;
+    --muted: #7a7570;
+    --line: #d8d3cb;
+    --accent-bg: #1a1814;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* TOP BAND */
+  .top-band {
+    background: var(--accent-bg);
+    color: var(--paper);
+    padding: 60px 80px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .top-band::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,151,74,0.2);
+  }
+  .top-band::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,151,74,0.1);
+  }
+
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .name span { color: var(--gold); }
+
+  .titles {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(245,242,237,0.5);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: rgba(245,242,237,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-item:hover { color: var(--gold); }
+  .contact-item svg { opacity: 0.6; flex-shrink: 0; }
+
+  /* MAIN GRID */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .left { padding-right: 60px; border-right: 1px solid var(--line); }
+  .right { padding-left: 50px; }
+
+  /* SECTION LABELS */
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  /* EXECUTIVE SUMMARY */
+  .summary {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #2a2825;
+    margin-bottom: 50px;
+  }
+  .summary strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* METRICS */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 50px;
+  }
+  .metric {
+    background: var(--paper);
+    padding: 20px 18px;
+    text-align: center;
+  }
+  .metric-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+
+  /* EXPERIENCE */
+  .exp-item { margin-bottom: 36px; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+    gap: 10px;
+  }
+  .exp-role {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .exp-company {
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .exp-desc {
+    font-size: 13px;
+    color: #4a4742;
+    line-height: 1.7;
+  }
+
+  /* STRUCTURED EXPERIENCE BLOCKS */
+  .exp-context {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    border-left: 2px solid var(--gold);
+    background: rgba(184,151,74,0.05);
+    font-style: italic;
+  }
+  .exp-pillar { margin-bottom: 20px; }
+  .exp-pillar-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 12.5px;
+    color: #3d3a37;
+    line-height: 1.65;
+    padding: 5px 0 5px 18px;
+    position: relative;
+    border-bottom: 1px solid rgba(216,211,203,0.4);
+  }
+  .exp-bullets li:last-child { border-bottom: none; }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 9px;
+    top: 7px;
+  }
+  .exp-bullets li strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 40px 0;
+  }
+
+  /* RIGHT SIDEBAR */
+  .sidebar-section { margin-bottom: 40px; }
+
+  .competency-list { list-style: none; }
+  .competency-list li {
+    font-size: 13px;
+    color: #3a3835;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
+  }
+  .competency-list li::before {
+    content: '—';
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .skill-group { margin-bottom: 16px; }
+  .skill-group-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border: 1px solid var(--line);
+    color: #4a4742;
+    border-radius: 2px;
+    background: white;
+  }
+
+  .edu-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .edu-sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 3px;
+  }
+  .edu-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+  }
+
+  /* FOOTER BAND */
+  .footer-band {
+    background: var(--accent-bg);
+    color: rgba(245,242,237,0.4);
+    text-align: center;
+    padding: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  .footer-band a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 800px) {
+    .top-band { padding: 40px 24px 36px; }
+    .main { grid-template-columns: 1fr; padding: 36px 24px; }
+    .left { padding-right: 0; border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 40px; margin-bottom: 40px; }
+    .right { padding-left: 0; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .name { animation: fadeUp 0.7s ease both; }
+  .titles { animation: fadeUp 0.7s 0.1s ease both; }
+  .contact-row { animation: fadeUp 0.7s 0.2s ease both; }
+  .summary { animation: fadeUp 0.6s 0.3s ease both; }
+  .metrics { animation: fadeUp 0.6s 0.4s ease both; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAND -->
+<div class="top-band">
+  <div class="name">Lijesh <span>TK</span></div>
+  <div class="titles">Chief of Staff &nbsp;·&nbsp; VP Operations &amp; Growth &nbsp;·&nbsp; COO</div>
+  <div class="contact-row">
+    <a class="contact-item" href="mailto:lijesh.tk1992@mail.com">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+      lijesh.tk1992@mail.com
+    </a>
+    <a class="contact-item" href="tel:+919495842092">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +91 94958 42092
+    </a>
+    <a class="contact-item" href="https://www.linkedin.com/in/lijesh-tk/" target="_blank">
+      <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      linkedin.com/in/lijesh-tk
+    </a>
+    <span class="contact-item">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Calicut, Kerala, India
+    </span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="left">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="label">Executive Summary</div>
+    <p class="summary">
+      Execution-first operating leader with <strong>10+ years of experience</strong> and 5+ years as <strong>Chief of Staff</strong> reporting directly to founders at a high-growth EdTech company. Architect of the systems that scaled the business from near-zero to a <strong>$5.5M ARR run-rate</strong>, grew the team from <strong>13 to 600+ people</strong>, and expanded digital reach from <strong>22K to 3M+ subscribers</strong>.<br><br>
+      An NIT Calicut engineer who deliberately pivoted into growth strategy — bringing structured, first-principles problem-solving to revenue systems, product ownership, BI infrastructure, and cross-functional governance. Known for translating boardroom strategy into ground-level results across Academics, Marketing, Technology, Finance, HR, and Campus Operations.<br><br>
+      Seeking a <strong>COO / VP / Senior Leadership</strong> mandate at a scale-stage organisation where operational rigour and growth architecture create compounding impact.
+    </p>
+
+    <!-- METRICS -->
+    <div class="metrics">
+      <div class="metric"><span class="metric-num">$5.5M</span><span class="metric-label">ARR run-rate scaled from seed</span></div>
+      <div class="metric"><span class="metric-num">600+</span><span class="metric-label">Team scaled from 13 in 4 years</span></div>
+      <div class="metric"><span class="metric-num">3M+</span><span class="metric-label">YouTube subscribers (from 22K)</span></div>
+      <div class="metric"><span class="metric-num">99%</span><span class="metric-label">Fee collection efficiency achieved</span></div>
+      <div class="metric"><span class="metric-num">40%</span><span class="metric-label">Ops efficiency gain via dashboards</span></div>
+      <div class="metric"><span class="metric-num">3,000+</span><span class="metric-label">Residential students annually</span></div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="label">Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Chief of Staff — Growth Strategy & Operations</div>
+        <div class="exp-date">Jun 2021 – Present</div>
+      </div>
+      <div class="exp-company">Eduport Academy Pvt. Ltd. — Kerala's leading EdTech brand</div>
+
+      <div class="exp-context">
+        3M+ online audience · 90,000+ annual enrolments · 150M+ Learning Hours delivered · Reporting directly to founders across all business functions
+      </div>
+
+      <!-- PILLAR 1 -->
+      <div class="exp-pillar">
+        <div class="exp-pillar-title">Strategic Execution & Cross-Functional Leadership</div>
+        <ul class="exp-bullets">
+          <li>Designed and owned the full cross-functional operating model — weekly <strong>KPI and OKR cadences across 9 departments</strong>, reducing decision lag by <strong>30%</strong> and improving forecast accuracy for a <strong>$5.5M ARR</strong> business.</li>
+          <li>Partnered directly with founders to translate strategy into ground-level execution across Academics, Marketing, Product, Finance, HR, and Campus Operations.</li>
+          <li>Implemented <strong>BI dashboards (Looker Studio / Power BI)</strong> across departments, cutting reporting cycle time by <strong>35%</strong> and enabling real-time performance visibility for leadership.</li>
+          <li>Acted as execution integrator — identifying friction points between departments and resolving systemic bottlenecks company-wide.</li>
+        </ul>
+      </div>
+
+      <!-- PILLAR 2 -->
+      <div class="exp-pillar">
+        <div class="exp-pillar-title">Product Ownership & Revenue Systems</div>
+        <ul class="exp-bullets">
+          <li>Led product ownership of a <strong>centralised ERP platform</strong> for residential campuses — integrating admissions, sales tracking, fee collection, finance, and full student lifecycle data into a single system.</li>
+          <li>Designed end-to-end revenue workflows including automated billing, EMI structures, e-mandates/UPI mandates, scholarship management, and dynamic fee structuring.</li>
+          <li>Improved on-time fee collection from <strong>80% → 95%+</strong>, with overall collections reaching <strong>99%</strong> — significantly strengthening revenue predictability.</li>
+          <li>Established a single source of truth for student and payment data, enabling real-time visibility across operations, finance, and leadership.</li>
+        </ul>
+      </div>
+
+      <!-- PILLAR 3 -->
+      <div class="exp-pillar">
+        <div class="exp-pillar-title">Growth, Funnel & Digital Revenue Architecture</div>
+        <ul class="exp-bullets">
+          <li>Built full-funnel growth engine: <strong>digital acquisition → subscription → engagement → high-value residential conversion</strong> (₹1L+ ticket size).</li>
+          <li>Scaled YouTube from <strong>22K → 3M+ subscribers</strong> and drove <strong>700K+ app installs</strong>.</li>
+          <li>Structured an <strong>LTV ₹2.5L+ driven model</strong> converting low-CAC digital users into premium residential enrolments.</li>
+          <li>Designed and implemented a centralised <strong>P&L and MIS system from scratch</strong>, integrating complex multi-department and multi-business-unit revenue and expense structures.</li>
+        </ul>
+      </div>
+
+      <!-- PILLAR 4 -->
+      <div class="exp-pillar">
+        <div class="exp-pillar-title">Organisational Scaling & AI Integration</div>
+        <ul class="exp-bullets">
+          <li>Expanded team from <strong>13 → 600+ employees</strong> with performance systems, accountability structures, and governance cadences.</li>
+          <li>Oversaw operational frameworks supporting <strong>3,000+ residential students annually</strong> across multiple campuses.</li>
+          <li>Led cross-functional execution of <strong>AI-powered Adaptive Personalised Teaching (ADAPT)</strong> — integrating product, faculty workflows, analytics, and student tracking; improved student engagement by <strong>33%</strong>.</li>
+          <li>Built centralised admissions and exam systems (CBT, automation), improving operational efficiency by <strong>40%</strong>.</li>
+          <li>Supported <strong>SAFE-based fundraising</strong> structuring and valuation positioning; contributed to long-term growth architecture and data-backed stakeholder reporting.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Technical & Management Consultant — MEP / HVAC</div>
+        <div class="exp-date">Oct 2017 – Dec 2021</div>
+      </div>
+      <div class="exp-company">Freelance — India & Middle East</div>
+      <div class="exp-desc">End-to-end MEP/HVAC consulting across India and GCC. Managed technical design, client coordination, and execution for multi-crore infrastructure projects. Applied structured bottleneck analysis and time-study frameworks — the foundation of operational systems thinking deployed later at scale.</div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Mechanical Engineer</div>
+        <div class="exp-date">Jul 2016 – May 2017</div>
+      </div>
+      <div class="exp-company">IFF — Industrial Fabrication Factory, Dammam, Saudi Arabia</div>
+      <div class="exp-desc">Led technical design, estimation, and planning for fabrication projects. Managed quality assurance and WPS/PQR qualification. Drove productivity improvements through bottleneck analysis and elimination of non-value-added activities.</div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="right">
+
+    <div class="sidebar-section">
+      <div class="label">Core Competencies</div>
+      <ul class="competency-list">
+        <li>Cross-Functional Leadership</li>
+        <li>Revenue & Growth Architecture</li>
+        <li>Operating System Design</li>
+        <li>KPI Governance & BI Reporting</li>
+        <li>Digital Acquisition & LTV Strategy</li>
+        <li>AI / Product Integration</li>
+        <li>Organisational Scaling (13→600+)</li>
+        <li>Fundraising & Investor Relations</li>
+        <li>Crisis Resolution & Turnarounds</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="label">Technical Skills</div>
+      <div class="skill-group">
+        <div class="skill-group-name">Data & Analytics</div>
+        <div class="skill-tags">
+          <span class="tag">Excel</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Looker Studio</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">AI & Automation</div>
+        <div class="skill-tags">
+          <span class="tag">LLM Workflows</span><span class="tag">Python</span><span class="tag">Apps Script</span><span class="tag">VBA</span><span class="tag">API</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Growth & CRM</div>
+        <div class="skill-tags">
+          <span class="tag">Salesforce</span><span class="tag">Zoho CRM</span><span class="tag">LeadSquared</span><span class="tag">Meta Ads</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Cloud & Infra</div>
+        <div class="skill-tags">
+          <span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">ERPNext</span><span class="tag">Zoho One</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="label">Education</div>
+      <div class="edu-name">B.Tech — Mechanical Engineering</div>
+      <div class="edu-sub">National Institute of Technology (NIT) Calicut</div>
+      <div class="edu-date">2011 – 2015</div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="label">Location & Availability</div>
+      <p style="font-size:13px;color:#4a4742;line-height:1.6;">Based in Calicut, Kerala, India.<br>Open to senior leadership mandates — remote, hybrid, or relocation.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer-band">
+  Lijesh TK &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/lijesh-tk/" target="_blank">linkedin.com/in/lijesh-tk</a> &nbsp;·&nbsp; lijesh.tk1992@mail.com
+</div>
+
+</body>
+</html>
